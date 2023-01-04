@@ -65,7 +65,17 @@ function mutateArray(a) {
       room_no: guest_booking?.room_no,
       some_total: guest_booking?.some_array?.reduce((a, c) => a + c) || 0
     }
-  ))?.filter(guest => guest?.guest_type == "guest");
+  ))?.filter(guest => guest?.guest_type == "guest")?.sort((a, b) => {
+    if (a.last_name === b.last_name) {
+      if (a.first_name < b.first_name) return -1;
+      if (a.first_name > b.first_name) return 1;
+      return 0;
+    } else {
+      if (a.last_name < b.last_name) return -1;
+      if (a.last_name > b.last_name) return 1;
+      return 0;
+    }
+  });
 }
 
 $(document).ready(function () {
