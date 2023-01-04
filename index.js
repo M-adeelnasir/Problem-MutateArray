@@ -62,8 +62,8 @@ function mutateArray(a) {
       guest_type,
       first_name,
       last_name,
-      room_no: guest_booking.room_no,
-      some_array: guest_booking.some_array
+      room_no: guest_booking?.room_no,
+      some_total: guest_booking?.some_array?.reduce((a, c) => a + c) || 0
     }
   ));
 }
