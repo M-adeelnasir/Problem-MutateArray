@@ -65,7 +65,7 @@ function mutateArray(a) {
       room_no: guest_booking?.room_no,
       some_total: guest_booking?.some_array?.reduce((a, c) => a + c) || 0
     }
-  ));
+  ))?.filter(guest => guest?.guest_type == "guest");
 }
 
 $(document).ready(function () {
